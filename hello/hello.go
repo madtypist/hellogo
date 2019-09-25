@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"math/cmplx"
 	"github.com/madtypist/stringutil"
 	"time"
 )
@@ -11,8 +12,9 @@ import (
 // variables declared at the package level
 var foo, bar string = "something", "more"
 
-func areaOfCircle(r float64) float64 {
-	return math.Pi * math.Pow(r, 2)	
+func areaOfCircle(r float64) int {
+	//let's return a nice round number
+	return int(math.Pi * math.Pow(r, 2))
 }
 
 func main() {
@@ -32,9 +34,21 @@ func main() {
 	// whatever is assigned to them
 	var x,y = 45.6, true
 
+	// We can do var blocks as well
+	var (
+		z	bool = true
+		maxInt	uint64  = 1<<64-1
+		tricky  complex128 = cmplx.Sqrt(-5 + 12i)
+	)
+
+
 	// Inside a function, the := short assignment statement can be used in place of a 
 	// var declaration with implicit type
 	thing1, thing2 := 13, "bananas"
 
-	fmt.Println(foo, bar, x, y, thing1, thing2)
+	fmt.Println(foo, bar, x, y, thing1, thing2, tricky)
+
+	// You can use %T to figure out variable type
+	fmt.Printf("Type: %T Value: %v\n", maxInt, maxInt)
+	fmt.Printf("Type: %T Value: %v\n", z, z)
 }
