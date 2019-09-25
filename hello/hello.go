@@ -30,8 +30,11 @@ func main() {
 	// function level variables
 	// These things don't need a type initializer - they will take on the type of 
 	// whatever is assigned to them
-
 	var x,y = 45.6, true
 
-	fmt.Println(foo, bar, x, y)
+	// Inside a function, the := short assignment statement can be used in place of a 
+	// var declaration with implicit type
+	thing1, thing2 := 13, "bananas"
+
+	fmt.Println(foo, bar, x, y, thing1, thing2)
 }
